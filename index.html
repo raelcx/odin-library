@@ -16,32 +16,32 @@
             <form action="" method="post">
                 <p>
                     <label for="title">Book title</label>
-                    <p>
                     <input type="text" name="title" id="title">
                 </p>
 
                 <p>
                     <label for="author">Author</label>
-                    <p>
                     <input type="text" name="author" id="author">
                 </p>
 
                 <p>
                     <label for="pages">Pages</label>
-                    <p>
                     <input type="number" name="pages" id="pages">
                 </p>
 
                 <p>
-                    <label for="read">Did you already read the book?</label>
-                    <p>
+                    <fieldset>
+                        <legend>Did you already read the book?</legend>
                     <label for="yes">Yes</label>
                     <input type="radio" name="read" id="yes">
                     <label for="no">No</label>
                     <input type="radio" name="read" id="no">
+                </fieldset>
                 </p>
+                <button type="button" class="addNewBookBtn">Add book</button>
             </form>
         </div>
+        <div class="libraryHeader">My Books</div>
         <div class="library"></div>
     </div>
 </body>
