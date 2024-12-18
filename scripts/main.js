@@ -100,5 +100,4 @@ function tempBooks() {
 // Calls function to add "dummy" books automatically when page loads
 tempBooks();
 
-
 displayBooks();
