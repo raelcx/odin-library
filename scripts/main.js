@@ -3,6 +3,28 @@ const myBooks = [];
 const addNewBookModal = document.querySelector("#addNewBookModal");
 const newBookBtn = document.querySelector("#newBookBtn");
 const closeNewBookModal = document.querySelector("#closeNewBookModal");
+const addBookBtn = document.querySelector("#addBookBtn");
+
+newBookBtn.addEventListener("click", () => {
+    addNewBookModal.showModal();
+})
+
+closeNewBookModal.addEventListener("click", () => {
+    addNewBookModal.close();
+})
+
+addNewBookModal.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const pages = document.getElementById('pages').value;
+    const read = document.querySelector('input[name="read"]:checked').id;
+
+    addBookToLibrary(title, author, pages, read);
+
+    addNewBookModal.close();
+})
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -63,15 +85,7 @@ function tempBooks() {
 
 }
 
-newBookBtn.addEventListener("click", () => {
-    addNewBookModal.showModal();
-})
-
-closeNewBookModal.addEventListener("click", () => {
-    addNewBookModal.close();
-})
-
-// Calls
+// Calls function to add "dummy" books automatically when page loads
 tempBooks();
 
 
