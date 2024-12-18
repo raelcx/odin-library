@@ -34,29 +34,25 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary(title, author, pages, read) {
-    const bookList = document.querySelector("#bookList");
-    const bookDiv = document.createElement("div");
+    let newBook = new Book(title, author, pages, read);
 
-    const elements = ['bookTitle', 'bookAuthor', 'bookPages', 'bookRead'].map(() => document.createElement("p"));
+    myBooks.push(newBook);
 
-    elements[0].textContent = 'Book Title: ' + title;
-    bookDiv.append(elements[0]);
-    elements[1].textContent = 'Book Author: ' + author;
-    bookDiv.append(elements[1]);
-    elements[2].textContent = 'Book Pages: ' + pages;
-    bookDiv.append(elements[2]);
-    elements[3].textContent = 'Book read? ' + read;
-    bookDiv.append(elements[3]);
-
-    bookList.append(bookDiv);
+    displayBooks();
 }
 
 function displayBooks() {
     const bookList = document.querySelector("#bookList");
 
+    while (bookList.firstChild) {
+        bookList.removeChild(bookList.firstChild);
+    }
+
     for (book in myBooks) {
         const bookDiv = document.createElement("div");
         bookDiv.setAttribute("class", (`book-${book}`));
+
+        const removeBook = document.createElement("button");
 
         const elements = ['bookTitle', 'bookAuthor', 'bookPages', 'bookRead'].map(() => document.createElement("p"));
 
@@ -68,6 +64,10 @@ function displayBooks() {
         bookDiv.append(elements[2]);
         elements[3].textContent = 'Book read? ' + myBooks[book].read;
         bookDiv.append(elements[3]);
+
+        removeBook.setAttribute("class", (`book-${book}`));
+        removeBook.textContent = "Remove book";
+        bookDiv.append(removeBook);
 
         bookList.append(bookDiv);
     }
