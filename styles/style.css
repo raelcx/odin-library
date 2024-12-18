@@ -6,7 +6,7 @@
     padding: 0;
     margin: 0;
     font-family: sans-serif;
-    background-color: #535353;
+    background-color: #202124;
     font-family: "Roboto", sans-serif;
 }
 
@@ -22,30 +22,34 @@ body {
     flex-direction: column;
 }
 
-.header {
+#bookManager {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+}
+
+#bookList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    width: 100vw;
+    gap: 15px;
 
 }
 
-.header p {
-    font-family: "Birthstone";
-    font-weight: 600;
-    color: white;
-    margin: 20px;
-    font-size: 3rem;
-}
 
-.bookManager {
-    color: white;
-    font-size: 1.2rem;
-    gap: 10px;
-}
-
-.libraryHeader {
-    margin: 20px;
-    margin-top: 35px;
-    color: white;
-    font-family: "Birthstone";
-    font-size: 3rem;
-    font-weight: 600;
-}
-
+.modal-container {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #00000050;
+  }
+  
+  .modal {
+    width: 600px;
+    height: 400px;
+    position: relative;
+  }

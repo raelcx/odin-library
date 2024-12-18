@@ -5,44 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Library</title>
     <link rel="stylesheet" href="./styles/style.css">
-    <script src="./script.js" defer></script>
+    <script src="./scripts/main.js" defer></script>
 </head>
 <body>
     <div id="container">
         <div class="header">
             <p>My Awesome Library</p>
         </div>
-        <div class="bookManager">
-            <form action="" method="post">
-                <p>
-                    <label for="title">Book title</label>
-                    <input type="text" name="title" id="title" required>
-                </p>
+        <div>
+            <button type="button" class="newBook">Add New Book</button>
+            <dialog id="addNewBookModal">
+                <div class='modal-container'>
+                    <div class='modal'>
+                        <button autofocus>Close</button>
+                        <form action="" method="dialog">
+                            <section>
+                                <h2>Add new book</h2>
+                                <p>
+                                    <label for="title"><span>Book Title</span></label>
+                                    <br>
+                                    <input type="text" name="title" id="title">
+                                </p>
+                                <p>
+                                    <label for="author">Book Author</label>
+                                    <br>
+                                    <input type="text" name="author" id="author">
+                                </p>
+                            </section>
 
-                <p>
-                    <label for="author">Author</label>
-                    <input type="text" name="author" id="author" required>
-                </p>
-
-                <p>
-                    <label for="pages">Pages</label>
-                    <input type="number" name="pages" id="pages" required>
-                </p>
-
-                <p>
-                    <fieldset>
-                        <legend>Did you already read the book?</legend>
-                    <label for="yes">Yes</label>
-                    <input type="radio" name="read" id="yes" required>
-                    <label for="no">No</label>
-                    <input type="radio" name="read" id="no" required>
-                </fieldset>
-                </p>
-                <button type="submit" class="addNewBookBtn">Add book</button>
-            </form>
+                            
+                        </form>
+                    </div>
+                </div>
+              </dialog>
         </div>
-        <div class="libraryHeader">My Books</div>
-        <div class="library"></div>
+
+        <div id="bookManager">
+            <div class="header">
+                <p>My Books</p>
+            </div>
+            <div id="bookList">
+
+            </div>
+        </div>
+        
     </div>
 </body>
 </html>
