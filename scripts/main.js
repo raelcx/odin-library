@@ -4,6 +4,7 @@ const addNewBookModal = document.querySelector("#addNewBookModal");
 const newBookBtn = document.querySelector("#newBookBtn");
 const closeNewBookModal = document.querySelector("#closeNewBookModal");
 const addBookBtn = document.querySelector("#addBookBtn");
+const bookList = document.querySelector("#bookList");
 
 newBookBtn.addEventListener("click", () => {
     addNewBookModal.showModal();
@@ -24,6 +25,11 @@ addNewBookModal.addEventListener("submit", (e) => {
     addBookToLibrary(title, author, pages, read);
 
     addNewBookModal.close();
+})
+
+// Add event listener to delete books
+bookList.addEventListener("click", (e) => {
+    deleteBook(e.target.className);
 })
 
 function Book(title, author, pages, read) {
@@ -67,10 +73,16 @@ function displayBooks() {
 
         removeBook.setAttribute("class", (`book-${book}`));
         removeBook.textContent = "Remove book";
+
         bookDiv.append(removeBook);
 
         bookList.append(bookDiv);
     }
+}
+
+function deleteBook(book) {
+    document.querySelector(`.${book}`).remove();
+
 }
 
 ///////
