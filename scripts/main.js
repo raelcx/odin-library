@@ -81,8 +81,9 @@ function displayBooks() {
 }
 
 function deleteBook(book) {
+    const index = book.replace("book-", "");
     document.querySelector(`.${book}`).remove();
-
+    myBooks.splice(index, 1);
 }
 
 ///////
