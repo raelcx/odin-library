@@ -1,6 +1,8 @@
 const myBooks = [];
 
 const addNewBookModal = document.querySelector("#addNewBookModal");
+const newBookBtn = document.querySelector("#newBookBtn");
+const closeNewBookModal = document.querySelector("#closeNewBookModal");
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -35,8 +37,6 @@ function displayBooks() {
     }
 }
 
-
-
 ///////
 function tempBooks() {
     let book1 = new Book('Teste título', 'Israel Carvalho', 350, 'yes');
@@ -48,6 +48,14 @@ function tempBooks() {
     myBooks.push(book3);
 
 }
+
+newBookBtn.addEventListener("click", () => {
+    addNewBookModal.showModal();
+})
+
+closeNewBookModal.addEventListener("click", () => {
+    addNewBookModal.close();
+})
 
 // Calls
 tempBooks();
