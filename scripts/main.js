@@ -11,8 +11,22 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-function addBookToLibrary() {
+function addBookToLibrary(title, author, pages, read) {
+    const bookList = document.querySelector("#bookList");
+    const bookDiv = document.createElement("div");
 
+    const elements = ['bookTitle', 'bookAuthor', 'bookPages', 'bookRead'].map(() => document.createElement("p"));
+
+    elements[0].textContent = 'Book Title: ' + title;
+    bookDiv.append(elements[0]);
+    elements[1].textContent = 'Book Author: ' + author;
+    bookDiv.append(elements[1]);
+    elements[2].textContent = 'Book Pages: ' + pages;
+    bookDiv.append(elements[2]);
+    elements[3].textContent = 'Book read? ' + read;
+    bookDiv.append(elements[3]);
+
+    bookList.append(bookDiv);
 }
 
 function displayBooks() {
